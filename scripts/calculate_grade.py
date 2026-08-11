@@ -77,14 +77,17 @@ def run_pytest() -> tuple[float, int, int]:
         errors += int(suite.get("errors", 0))
         skipped += int(suite.get("skipped", 0))
 
-    considered = total - skipped
-    passed = considered - failures - errors
-    if considered <= 0:
-        print("No se encontraron pruebas ejecutables; 0 puntos en este apartado.")
+    # Los tests aún NO implementados se marcan con pytest.skip(...) en las
+    # plantillas. Cuentan como PENDIENTES: entran en el denominador pero no
+    # suman puntos. Así el 20 % crece a medida que el equipo completa sus TODOs
+    # y, al mismo tiempo, la suite sigue en verde para que mutmut no aborte.
+    if total <= 0:
+        print("No se encontraron pruebas; 0 puntos en este apartado.")
         return 0.0, 0, 0
 
-    points = PYTEST_WEIGHT * passed / considered
-    return round(points, 2), passed, considered
+    passed = total - failures - errors - skipped
+    points = PYTEST_WEIGHT * passed / total
+    return round(points, 2), passed, total
 
 
 # ---------------------------------------------------------------------------

@@ -18,6 +18,7 @@ CLASE BAJO PRUEBA
     La URL destino es `<base_url>/charges` (POST).
 """
 
+import pytest
 import requests
 
 from app.payment_gateway import PaymentGateway, PaymentGatewayError
@@ -49,7 +50,7 @@ def test_charge_aprobado_200(requests_mock):
 #   - Verifica que `resultado["approved"] is False` y que se propaga el "reason".
 #   - RECUERDA: un 402 NO es una excepción, es una respuesta de negocio.
 def test_charge_rechazado_402(requests_mock):
-    ...
+    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
 
 
 # TODO 2: Timeout de red.
@@ -57,17 +58,17 @@ def test_charge_rechazado_402(requests_mock):
 #   - Verifica que `gateway.charge(...)` lanza `PaymentGatewayError`
 #     (usa `with pytest.raises(PaymentGatewayError): ...`).
 def test_charge_timeout(requests_mock):
-    ...
+    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
 
 
 # TODO 3: Respuesta HTTP inesperada (p. ej. 500).
 #   - status_code=500. Verifica que se lanza `PaymentGatewayError`.
 def test_charge_error_servidor_500(requests_mock):
-    ...
+    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
 
 
 # TODO 4 (opcional): verifica el CUERPO enviado.
 #   - Tras un cobro, inspecciona `requests_mock.last_request.json()` y comprueba
 #     que contiene "card_token" y "amount" con los valores correctos.
 def test_charge_envia_payload_correcto(requests_mock):
-    ...
+    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")

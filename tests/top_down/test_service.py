@@ -61,7 +61,7 @@ def test_calculate_total_aplica_iva():
 #   - `calculate_total(100.0, 0)` y `calculate_total(100.0, -1)` deben lanzar
 #     `ValueError`. Usa `with pytest.raises(ValueError): ...`.
 def test_calculate_total_cantidad_invalida():
-    ...
+    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
 
 
 # TODO 2: Stock insuficiente.
@@ -70,7 +70,7 @@ def test_calculate_total_cantidad_invalida():
 #   - EXTRA: verifica que NUNCA se intentó cobrar
 #     (`gateway.charge.assert_not_called()`).
 def test_place_order_sin_stock():
-    ...
+    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
 
 
 # TODO 3: Pago rechazado.
@@ -78,7 +78,7 @@ def test_place_order_sin_stock():
 #   - `place_order(...)` debe lanzar `PaymentRejectedError`.
 #   - EXTRA: verifica que el pedido NO se guardó (`db.save_order.assert_not_called()`).
 def test_place_order_pago_rechazado():
-    ...
+    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
 
 
 # TODO 4: Camino feliz completo.
@@ -87,4 +87,4 @@ def test_place_order_pago_rechazado():
 #   - Verifica que se descontó el stock:
 #     `db.update_stock` fue llamado con (product_id, stock - quantity).
 def test_place_order_confirmado_descuenta_stock():
-    ...
+    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")

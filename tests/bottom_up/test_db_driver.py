@@ -74,7 +74,7 @@ def test_fake_db_lee_estado_inicial(fake_db):
 #   - Llama a `fake_db.update_stock("SKU-1", 7)` y verifica que
 #     `fake_db.get_stock("SKU-1") == 7`. (Un Mock no haría esto solo.)
 def test_fake_db_actualiza_stock(fake_db):
-    ...
+    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
 
 
 # TODO 2: Guardado de pedidos.
@@ -83,11 +83,11 @@ def test_fake_db_actualiza_stock(fake_db):
 #       * ese id aparece en `fake_db.orders`,
 #       * dos pedidos guardados reciben ids DISTINTOS.
 def test_fake_db_guarda_pedidos_con_id_unico(fake_db):
-    ...
+    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
 
 
 # TODO 3 (opcional): decide qué hacer ante un producto inexistente.
 #   - Documenta y prueba el comportamiento (p. ej. `KeyError`) para dejar
 #     claro el contrato del Fake al resto del equipo.
 def test_fake_db_producto_inexistente(fake_db):
-    ...
+    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")

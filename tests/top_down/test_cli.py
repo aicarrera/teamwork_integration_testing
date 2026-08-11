@@ -50,21 +50,21 @@ def test_run_order_exito(mocker):
 #     (usa `service.place_order.side_effect = OutOfStockError(...)`).
 #   - Verifica que el mensaje EMPIECE por "ERROR: sin stock".
 def test_run_order_sin_stock(mocker):
-    ...
+    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
 
 
 # TODO 2: Pago rechazado.
 #   - `side_effect = PaymentRejectedError("insufficient_funds")`.
 #   - Verifica que el mensaje EMPIECE por "ERROR: pago rechazado".
 def test_run_order_pago_rechazado(mocker):
-    ...
+    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
 
 
 # TODO 3: Error inesperado (p. ej. la BD/red falla).
 #   - `side_effect = ConnectionError("boom")` (o cualquier Exception genérica).
 #   - Verifica que el mensaje EMPIECE por "ERROR: inesperado".
 def test_run_order_error_inesperado(mocker):
-    ...
+    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
 
 
 # TODO 4 (opcional, avanzado): prueba `app.cli.main([...])`

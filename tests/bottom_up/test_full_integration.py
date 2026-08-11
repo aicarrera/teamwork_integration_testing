@@ -67,7 +67,7 @@ def test_pedido_end_to_end_confirmado(requests_mock, integrated_service):
 #   - CLAVE de integración: el stock NO debe haber bajado y NO debe existir
 #     ningún pedido guardado (`db.orders == {}`).
 def test_pedido_rechazado_no_cambia_estado(requests_mock, integrated_service):
-    ...
+    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
 
 
 # TODO 2: Sin stock nunca se llega a la red.
@@ -75,11 +75,11 @@ def test_pedido_rechazado_no_cambia_estado(requests_mock, integrated_service):
 #   - Verifica que se lanza `OutOfStockError` y que NO se registró ninguna
 #     petición HTTP (`requests_mock.call_count == 0`).
 def test_pedido_sin_stock_no_llama_pasarela(requests_mock, integrated_service):
-    ...
+    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
 
 
 # TODO 3: Dos pedidos consecutivos descuentan stock de forma acumulada.
 #   - Simula 200 OK. Haz dos pedidos de 3 unidades cada uno.
 #   - Verifica que el stock final es 10 - 3 - 3 = 4 y que hay 2 pedidos guardados.
 def test_dos_pedidos_descuentan_stock_acumulado(requests_mock, integrated_service):
-    ...
+    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
