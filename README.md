@@ -7,6 +7,31 @@ sistema de procesamiento de pedidos por capas. Su nota (0–100) se calcula
 
 ---
 
+## 🚀 EMPIEZA AQUÍ (lo PRIMERO que debe hacer el equipo)
+
+> 🛑 **No hagas _Fork_ ni clones este repositorio directamente.** Sigue estos pasos.
+
+**Paso 1 — UN solo integrante** crea el repositorio del equipo con el botón verde
+**"Use this template" → "Create a new repository"**:
+
+![Botón Use this template](docs/usar-plantilla.png)
+
+**Paso 2 —** ese integrante agrega a los otros 4 como colaboradores:
+`Settings → Collaborators → Add people`.
+
+**Paso 3 — los 5 integrantes** clonan el repositorio **del equipo** (no este):
+usen el botón **"Code" → HTTPS** para copiar la URL y luego:
+
+```bash
+git clone https://github.com/EL-EQUIPO/su-repo-del-equipo.git
+```
+
+> 📌 ¿Por qué no _Fork_? Los forks tienen **GitHub Actions deshabilitado por
+> defecto**, así que la autoevaluación **no correría**. "Use this template" crea
+> un repositorio **independiente y con Actions activo**.
+
+---
+
 ## 📌 Contexto del sistema
 
 `OrderSystem` está dividido en 4 capas:
