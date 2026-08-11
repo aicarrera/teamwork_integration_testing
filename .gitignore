@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Pruebas / cobertura / mutación
+.pytest_cache/
+.mutmut-cache
+mutmut-report.xml
+pytest-report.xml
+html/
+
+# Sistema
+.DS_Store
