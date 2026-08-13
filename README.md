@@ -124,58 +124,16 @@ Ver los **`print(...)`** de tu código y tus tests (pytest los oculta por defect
 pytest tests/top_down/test_cli.py -v -s
 ```
 
-Simular **tu nota completa** localmente (igual que en GitHub):
-
-```bash
-python scripts/calculate_grade.py
-```
-
 ---
 
-## 🤖 ¿Cómo se calcula la nota? (0–100)
+## 🤖 Nota y dónde verla
 
-La calificación se ejecuta con **GitHub Actions** en cada `push` a `main` y se
-compone de **dos pasos**:
+En cada `push` a `main`, GitHub Actions califica solo (0–100):
 
-### 1. PyTest Execution — **20 %**
-Verifica que **las pruebas del equipo pasen** sobre el código sano.
-Puntos = `20 × (pruebas que pasan / pruebas totales)`.
+- **PyTest — 20 %:** proporción de las pruebas del equipo que pasan.
+- **Mutation Testing — 80 %:** el sistema "rompe" el código de `app/` en muchos cambios pequeños; cada test que **detecta** un cambio suma. Con detectar el **55 % o más** se obtiene el puntaje completo.
 
-### 2. Mutation Testing con `mutmut` — **80 %**
-Se introducen **mutaciones** en el código de `app/` (cambiar `>` por `>=`,
-`+` por `-`, el 16 % del IVA, textos, etc.). Cada mutación crea un "mutante".
-
-- Si **alguna prueba falla** con el código mutado → el mutante fue **detectado (killed)** ✅
-- Si **todas las pruebas pasan** con el código mutado → el mutante **sobrevivió** ❌
-
-Puntos = `80 × (mutantes killed / mutantes totales)`.
-
-> 🎯 **La lección:** que tus pruebas "pasen en verde" no basta. Solo unas
-> pruebas con **buenas aserciones** matan mutantes. El mutation testing mide la
-> **calidad real** de sus pruebas, no solo su existencia.
-
-> 🔎 Nota: `app/db_connector.py` se **excluye** de la mutación a propósito
-> (es un stub de una BD que no existe y se reemplaza por un Fake).
-
-**Nota final = Paso 1 + Paso 2** (máximo 100).
-
----
-
-## 📊 ¿Dónde veo mi nota?
-
-1. Haz `push` a la rama `main` de **su** repositorio (creado desde la plantilla).
-2. Entra a la pestaña **Actions** del repo en GitHub.
-3. Abre la última ejecución del workflow **“Autograding”**.
-4. En la vista de resumen (**Summary**) verás una tabla como esta:
-
-| Paso | Métrica | Detalle | Puntos |
-| --- | --- | --- | --- |
-| 1. PyTest Execution | 100.0 % pruebas OK | 15/15 pruebas pasan | **20.00 / 20** |
-| 2. Mutation Testing | 87.5 % mutantes 💀 | 28/32 mutantes asesinados | **70.00 / 80** |
-
-### 🏆 NOTA FINAL: **90.00 / 100**
-
-La nota se **recalcula en cada push**: mejoren sus aserciones y verán subir el número.
+Miren su nota en **Actions → última ejecución → Summary**. Se recalcula en cada push.
 
 ---
 

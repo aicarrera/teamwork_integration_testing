@@ -28,6 +28,22 @@ from pathlib import Path
 PYTEST_WEIGHT = 20.0
 MUTATION_WEIGHT = 80.0
 
+# --- Curva con meta para la nota de mutación --------------------------------
+# El 100 % de mutantes asesinados es casi inalcanzable (mensajes de error,
+# mutantes equivalentes, etc.). En vez de exigir el 100 %, fijamos una META
+# realista: matar este porcentaje de mutantes (o más) otorga el 80 % completo.
+# Por debajo de la meta, los puntos se reparten en proporción.
+#
+#   Ejemplos con MUTATION_TARGET = 0.55:
+#     - killed 55 % o más -> 80.00 / 80  (meta alcanzada = puntaje completo)
+#     - killed 44 %        -> 80 × (0.44 / 0.55) = 64.00 / 80
+#     - killed 27.5 %      -> 80 × (0.275 / 0.55) = 40.00 / 80
+#
+# Con 0.55, un taller COMPLETO (~56 % de mutantes) ya llega al 80/80 (nota 100),
+# lo cual es justo cuando no se enseñó mutation testing: hacer todo = nota top.
+# Sube la meta (p. ej. 0.70) para exigir más si vas a explicar la técnica.
+MUTATION_TARGET = 0.55
+
 ROOT = Path(__file__).resolve().parent.parent
 PYTEST_REPORT = ROOT / "pytest-report.xml"
 MUTMUT_REPORT = ROOT / "mutmut-report.xml"
@@ -124,7 +140,11 @@ def run_mutation() -> tuple[float, int, int]:
     survived = sum(1 for tc in testcases if tc.find("failure") is not None)
     killed = total - survived
 
-    points = MUTATION_WEIGHT * killed / total
+    # Curva con meta: alcanzar MUTATION_TARGET (o más) da el 80 % completo;
+    # por debajo se reparte en proporción a la meta (nunca más de 1.0).
+    kill_ratio = killed / total
+    curved = min(1.0, kill_ratio / MUTATION_TARGET) if MUTATION_TARGET > 0 else 1.0
+    points = MUTATION_WEIGHT * curved
     return round(points, 2), killed, total
 
 
@@ -157,13 +177,14 @@ def build_markdown(
         "| --- | --- | --- | --- |",
         f"| 1. PyTest Execution | {test_pct:.1f} % pruebas OK | "
         f"{passed}/{total_tests} pruebas pasan | **{pytest_points:.2f} / {PYTEST_WEIGHT:.0f}** |",
-        f"| 2. Mutation Testing | {mut_pct:.1f} % mutantes 💀 | "
+        f"| 2. Mutation Testing | {mut_pct:.1f} % mutantes 💀 (meta {MUTATION_TARGET*100:.0f} %) | "
         f"{killed}/{total_mutants} mutantes asesinados | **{mutation_points:.2f} / {MUTATION_WEIGHT:.0f}** |",
         "",
         f"### 🏆 NOTA FINAL: **{final:.2f} / 100**",
         "",
-        "> _La nota se recalcula en cada push a `main`. "
-        "Mientras más mutantes detecten sus pruebas, mayor será la calificación._",
+        f"> _La nota de mutación usa una **meta del {MUTATION_TARGET*100:.0f} %**: "
+        f"matar ese porcentaje de mutantes (o más) otorga el puntaje completo. "
+        "Se recalcula en cada push a `main`._",
     ])
 
 
