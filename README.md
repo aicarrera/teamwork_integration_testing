@@ -118,6 +118,12 @@ Ejecutar **solo tu archivo** mientras trabajas:
 pytest tests/top_down/test_cli.py -v
 ```
 
+Ver los **`print(...)`** de tu código y tus tests (pytest los oculta por defecto):
+
+```bash
+pytest tests/top_down/test_cli.py -v -s
+```
+
 Simular **tu nota completa** localmente (igual que en GitHub):
 
 ```bash

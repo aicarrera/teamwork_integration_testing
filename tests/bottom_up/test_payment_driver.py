@@ -67,8 +67,10 @@ def test_charge_error_servidor_500(requests_mock):
     pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
 
 
-# TODO 4 (opcional): verifica el CUERPO enviado.
-#   - Tras un cobro, inspecciona `requests_mock.last_request.json()` y comprueba
-#     que contiene "card_token" y "amount" con los valores correctos.
-def test_charge_envia_payload_correcto(requests_mock):
-    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
+# TODO 4 (OPCIONAL — NO cuenta para la nota): verifica el CUERPO enviado. Si
+# quieres practicar de más, descomenta la función de abajo y complétala. Tras un
+# cobro, inspecciona `requests_mock.last_request.json()` y comprueba que contiene
+# "card_token" y "amount" con los valores correctos.
+#
+# def test_charge_envia_payload_correcto(requests_mock):
+#     ...

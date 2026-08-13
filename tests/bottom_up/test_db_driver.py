@@ -71,23 +71,27 @@ def test_fake_db_lee_estado_inicial(fake_db):
 
 # --- TODO INTEGRANTE 3 -----------------------------------------------------
 # TODO 1: El estado cambia de verdad.
-#   - Llama a `fake_db.update_stock("SKU-1", 7)` y verifica que
-#     `fake_db.get_stock("SKU-1") == 7`. (Un Mock no haría esto solo.)
+#   - Llama a `fake_db.update_stock("SKU-1", 7)` y luego comprueba que
+#     `fake_db.get_stock("SKU-1")` ahora devuelva ese mismo valor (7).
+#     (Un Mock no haría esto solo: aquí el estado se guarda de verdad.)
 def test_fake_db_actualiza_stock(fake_db):
     pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
 
 
 # TODO 2: Guardado de pedidos.
-#   - Guarda un pedido con `save_order({...})` y verifica que:
-#       * devuelve un id no vacío,
-#       * ese id aparece en `fake_db.orders`,
-#       * dos pedidos guardados reciben ids DISTINTOS.
+#   - Guarda un pedido con `fake_db.save_order(...)` y comprueba que:
+#       * el id que devuelve no esté vacío,
+#       * ese id aparezca dentro de `fake_db.orders`,
+#       * al guardar un segundo pedido, su id sea distinto del primero.
 def test_fake_db_guarda_pedidos_con_id_unico(fake_db):
     pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
 
 
-# TODO 3 (opcional): decide qué hacer ante un producto inexistente.
-#   - Documenta y prueba el comportamiento (p. ej. `KeyError`) para dejar
-#     claro el contrato del Fake al resto del equipo.
-def test_fake_db_producto_inexistente(fake_db):
-    pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
+# TODO 3 (OPCIONAL — NO cuenta para la nota): decide qué hacer ante un producto
+# inexistente. Si quieres practicar de más, descomenta la función de abajo y
+# complétala. Documenta y prueba el comportamiento esperado cuando se consulta
+# un producto que no existe (por ejemplo, que se lance un error), para dejar
+# claro el contrato del Fake al resto del equipo.
+#
+# def test_fake_db_producto_inexistente(fake_db):
+#     ...

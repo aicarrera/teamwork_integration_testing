@@ -56,7 +56,8 @@ def test_run_order_error_inesperado(mocker):
     pytest.skip("TODO pendiente: completa este test (Integrante responsable).")
 
 
-# TODO 4 (opcional, avanzado): prueba `app.cli.main([...])`
+# TODO 4 (OPCIONAL, avanzado — NO cuenta para la nota): prueba `app.cli.main([...])`
+#   Si quieres practicar de más, escribe tú la función de test:
 #   - Usa `mocker.patch("app.cli.build_service")` para inyectar un servicio
 #     simulado y verifica el código de salida (0 en éxito, 1 en error) y que
 #     se imprime el mensaje esperado (captúralo con el fixture `capsys`).
