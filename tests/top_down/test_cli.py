@@ -1,24 +1,13 @@
 """INTEGRANTE 1 — Top-Down · Nivel Superior (CLI)
 ================================================================
-
 OBJETIVO
     Probar `app/cli.py` mockeando POR COMPLETO `OrderService` con
-    `pytest-mock` (`mocker`). A esta capa NO le importa cómo se procesa el
-    pedido: solo que llama al servicio y traduce bien la respuesta y los
-    errores a mensajes de texto.
-
+    `pytest-mock` (`mocker`).
 TÉCNICA
     - Estrategia: Top-Down (empiezas por arriba y simulas lo de abajo).
     - Herramienta: `mocker.patch(...)` y `mocker.MagicMock()`.
-
 FUNCIÓN BAJO PRUEBA
     `app.cli.run_order(service, product_id, quantity, card_token) -> str`
-
-CONTRATO DE SALIDA (lo que debes verificar, cadena EXACTA):
-    - Éxito:           "OK: pedido <id> confirmado, total=<total>"
-    - Sin stock:       "ERROR: sin stock (...)"
-    - Pago rechazado:  "ERROR: pago rechazado (...)"
-    - Cualquier otro:  "ERROR: inesperado (...)"
 """
 
 import pytest

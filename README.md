@@ -1,4 +1,4 @@
-# 🧪 Taller de Integration Testing — OrderSystem
+# Taller de Integration Testing — OrderSystem
 
 Bienvenidos al taller práctico de **Pruebas de Integración en Python**. Trabajarán
 en **equipos de 5** aplicando las estrategias **Top-Down** y **Bottom-Up** sobre un
@@ -26,11 +26,6 @@ usen el botón **"Code" → HTTPS** para copiar la URL y luego:
 git clone https://github.com/EL-EQUIPO/su-repo-del-equipo.git
 ```
 
-> 📌 ¿Por qué no _Fork_? Los forks tienen **GitHub Actions deshabilitado por
-> defecto**, así que la autoevaluación **no correría**. "Use this template" crea
-> un repositorio **independiente y con Actions activo**.
-
----
 
 ## 📌 Contexto del sistema
 

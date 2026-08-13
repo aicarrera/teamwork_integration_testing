@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(python -m pip install -q -r requirements.txt)",
-      "Bash(PYTHONIOENCODING=utf-8 python -m mutmut run)",
-      "Bash(PYTHONIOENCODING=utf-8 python -m mutmut junitxml)"
-    ]
-  }
-}
