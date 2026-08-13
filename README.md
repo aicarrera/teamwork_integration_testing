@@ -7,9 +7,9 @@ sistema de procesamiento de pedidos por capas. Su nota (0–100) se calcula
 
 ---
 
-## 🚀 EMPIEZA AQUÍ (lo PRIMERO que debe hacer el equipo)
+## EMPIEZA AQUÍ (lo primero que debe hacer el equipo)
 
-> 🛑 **No hagas _Fork_ ni clones este repositorio directamente.** Sigue estos pasos.
+> **No hagas _Fork_ ni clones este repositorio directamente.** Sigue estos pasos.
 
 **Paso 1 — UN solo integrante** crea el repositorio del equipo con el botón verde
 **"Use this template" → "Create a new repository"**:
@@ -26,30 +26,31 @@ usen el botón **"Code" → HTTPS** para copiar la URL y luego:
 git clone https://github.com/EL-EQUIPO/su-repo-del-equipo.git
 ```
 
+---
 
-## 📌 Contexto del sistema
+## Contexto del sistema
 
 `OrderSystem` está dividido en 4 capas:
 
 | Capa | Módulo | Responsabilidad | ¿Existe hoy? |
 | :--: | ------ | --------------- | ------------ |
-| 1 | `app/cli.py` | Interfaz de línea de comandos (UI) | ✅ Sí |
-| 2 | `app/order_service.py` | Lógica de negocio (IVA, stock, pagos) | ✅ Sí |
-| 3 | `app/payment_gateway.py` | Pasarela de pagos externa (HTTP) | ❌ **No desplegada** |
-| 4 | `app/db_connector.py` | Persistencia / Base de datos | ❌ **No desplegada** |
+| 1 | `app/cli.py` | Interfaz de línea de comandos (UI) | Sí |
+| 2 | `app/order_service.py` | Lógica de negocio (IVA, stock, pagos) | Sí |
+| 3 | `app/payment_gateway.py` | Pasarela de pagos externa (HTTP) | **No desplegada** |
+| 4 | `app/db_connector.py` | Persistencia / Base de datos | **No desplegada** |
 
-> ⚠️ **Premisa clave:** la base de datos (Capa 4) y la API de pagos (Capa 3)
+> **Premisa clave:** la base de datos (Capa 4) y la API de pagos (Capa 3)
 > **aún no existen**. Sus métodos lanzan errores de conexión si se ejecutan
 > directamente. Deben probar la integración del sistema **antes** de que la
 > infraestructura real esté disponible, usando dobles de prueba (mocks, stubs,
 > fakes e interceptores HTTP).
 
-**Top-Down** ⬇️ empieza por las capas altas y simula las bajas.
-**Bottom-Up** ⬆️ construye y prueba primero las capas base y va integrando hacia arriba.
+**Top-Down** empieza por las capas altas y simula las bajas.
+**Bottom-Up** construye y prueba primero las capas base y va integrando hacia arriba.
 
 ---
 
-## 👥 Asignación de roles (cada quien trabaja en UN archivo)
+## Asignación de roles (cada quien trabaja en UN archivo)
 
 | # | Rol | Archivo a completar | Estrategia | Herramienta clave |
 | :-: | --- | ------------------- | ---------- | ----------------- |
@@ -60,13 +61,11 @@ git clone https://github.com/EL-EQUIPO/su-repo-del-equipo.git
 | 5 | Bottom-Up · Driver Integrador | `tests/bottom_up/test_full_integration.py` | Bottom-Up E2E | Fake (3) + requests-mock (4) + `OrderService` real |
 
 Cada archivo trae un **ejemplo resuelto** y una lista de **`# TODO`** que deben completar.
-
-> 💡 El Integrante 5 **reutiliza** el `FakeDb` del Integrante 3 y la técnica del
-> Integrante 4. ¡Coordínense: sus piezas encajan!
+El Integrante 5 **reutiliza** el `FakeDb` del Integrante 3 y la técnica del Integrante 4.
 
 ---
 
-## 🗂️ Estructura del proyecto
+## Estructura del proyecto
 
 ```
 .
@@ -96,7 +95,7 @@ Cada archivo trae un **ejemplo resuelto** y una lista de **`# TODO`** que deben 
 
 ---
 
-## 🚀 Puesta en marcha (local)
+## Puesta en marcha (local)
 
 Requisito: **Python 3.11+**.
 
@@ -126,7 +125,7 @@ pytest tests/top_down/test_cli.py -v -s
 
 ---
 
-## 🤖 Nota y dónde verla
+## Nota y dónde verla
 
 En cada `push` a `main`, GitHub Actions califica solo (0–100):
 
@@ -137,16 +136,9 @@ Miren su nota en **Actions → última ejecución → Summary**. Se recalcula en
 
 ---
 
-## 🧭 Flujo de trabajo recomendado para el equipo
+## Reglas de trabajo
 
-1. Un integrante crea el repositorio del grupo **desde la plantilla**
-   (botón _“Use this template”_) y añade a los demás como colaboradores.
-2. Cada quien trabaja en **su archivo** de `tests/` (idealmente en su propia rama).
-3. Hagan _commits_ pequeños y frecuentes; corran `pytest` en local antes de subir.
-4. Integren todo en `main` mediante Pull Requests.
-5. Revisen la pestaña **Actions** para ver cómo evoluciona la nota del equipo.
-
-> ✅ **No modifiquen `app/`.** Su trabajo es escribir **pruebas**. Cambiar el
-> código de la aplicación para "subir la nota" invalida el ejercicio.
-
-¡Éxitos! 🚀
+- Cada quien trabaja en **su archivo** de `tests/`; hagan commits pequeños y frecuentes.
+- Corran `pytest` en local antes de subir.
+- **No modifiquen `app/`.** Su trabajo es escribir **pruebas**; cambiar el código
+  de la aplicación para "subir la nota" invalida el ejercicio.
